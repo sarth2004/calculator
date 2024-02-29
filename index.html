@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        BODY{background-color: aqua}
+        h1{
+            text-align: center;
+        }
+        .main-box{
+            height: 610px;
+            width: 380px;
+            background-color: #292c2e;
+            margin: 40px auto;
+            padding: 1px 20px 0 20px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px 7px rgb(95, 89, 89);
+            flex-wrap: wrap;
+        }
+        .name{
+            text-align: end;
+            color: rgb(240, 228, 125);
+            font-size: 18px;
+        }
+        .screen{
+            width: 340px;
+            height: 70px;
+            font-size: 60px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: -5px -5px 8px 0 black;
+        }
+        .btn{
+            display: inline;
+            flex-wrap: wrap;
+        }
+        button{
+            height: 60px;
+            width: 60px;
+            margin: 15px;
+            font-size: 30px;
+            background-color: rgb(40, 36, 36);
+            color: white;
+            box-shadow: 5px 5px 8px 0 rgb(26, 23, 23);
+            cursor: pointer;
+        }
+        button:hover{
+            box-shadow: 0px 0px 5px 0px white;
+        }
+    </style>
+</head>
+<body>
+    <h1>CALCULATOR</h1>
+    <div class="main-box">
+        <p class="name"><b>Sarthak</b></p>
+        <input class="screen" id="input">
+        <div class="btn">
+            <button style="width: 155px; background-color: rgb(29, 50, 243);" onclick="keyPress('clear')">Clear</button>
+            <button onclick="keyPress('/')">/</button>
+            <button onclick="keyPress('')"></button>
+
+            <button onclick="keyPress('7')">7</button>
+            <button onclick="keyPress('8')">8</button>
+            <button onclick="keyPress('9')">9</button>
+            <button onclick="keyPress('-')">-</button>
+
+            <button onclick="keyPress('4')">4</button>
+            <button onclick="keyPress('5')">5</button>
+            <button onclick="keyPress('6')">6</button>
+            <button onclick="keyPress('+')">+</button>
+
+            <button onclick="keyPress('1')">1</button>
+            <button onclick="keyPress('2')">2</button>
+            <button onclick="keyPress('3')">3</button>
+
+            <button onclick="keyPress('.')">.</button>
+            <button onclick="keyPress('0')">0</button>
+            <button onclick="keyPress('00')">00</button>
+            <button style="width: 155px; background-color: blue;" onclick="calculate()">=</button>
+        </div>
+    </div>
+    <script>
+        function keyPress(value){
+            const screenElement = document.getElementById("input");
+            if(value == 'clear'){
+                screenElement.value = ' ';
+            }else{
+                screenElement.value += value;
+            }
+        }
+        function calculate(){
+            const screenElement = document.getElementById("input");
+            screenElement.value = eval(screenElement.value);
+        }
+        function clear(){
+            const screenElement = document.getElementById("input");
+            screenElement.value = 'ans';
+        }
+    </script>
+</body>
+</html>
